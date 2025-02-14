@@ -20,15 +20,13 @@ const ChartOpenButton = () => {
           <Flex
             align="center"
             justify="center"
-            position="absolute"
             width="80px"
-            left="6"
-            bottom="6"
             style={{
               cursor: canOpenChart ? "pointer" : "auto",
               borderRadius: "50%",
               aspectRatio: 1,
               opacity: canOpenChart ? 1 : 0.2,
+              boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
             }}
             onClick={(e) => {
               if (canOpenChart) {

@@ -5,6 +5,7 @@ import { ETab, IUi } from "../../types/ui";
 const initialState: IUi = {
   currentTab: ETab.INTERACTIVE,
   chartSectionOpen: false,
+  infoSectionOpen: false,
 };
 
 export const uiSlice = createSlice({
@@ -17,9 +18,13 @@ export const uiSlice = createSlice({
     setChartSectionOpen: (state, action: PayloadAction<boolean>) => {
       state.chartSectionOpen = action.payload;
     },
+    setInfoSectionOpen: (state, action: PayloadAction<boolean>) => {
+      state.infoSectionOpen = action.payload;
+    },
   },
 });
 
-export const { setCurrentTab, setChartSectionOpen } = uiSlice.actions;
+export const { setCurrentTab, setChartSectionOpen, setInfoSectionOpen } =
+  uiSlice.actions;
 
 export default uiSlice.reducer;

@@ -19,12 +19,7 @@ const ModelControls = () => {
     (state: RootState) => state.simulation
   );
   return (
-    <Flex
-      //   style={{ backgroundColor: "green" }}
-      height="100%"
-      direction="column"
-      p="4"
-    >
+    <Flex height="100%" direction="column" p="4">
       <Heading mb="4">Controls</Heading>
       <Grid columns="3" gap="4">
         <Button

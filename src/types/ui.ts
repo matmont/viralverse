@@ -6,4 +6,5 @@ export enum ETab {
 export interface IUi {
   currentTab: ETab;
   chartSectionOpen: boolean;
+  infoSectionOpen: boolean;
 }
