@@ -1,4 +1,4 @@
-import { Flex, Box, Button, Text, Callout, Link } from "@radix-ui/themes";
+import { Flex, Button, Text, Callout, Link } from "@radix-ui/themes";
 import { setInfoSectionOpen } from "../../store/slices/uiSlice";
 import { useDispatch } from "react-redux";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
