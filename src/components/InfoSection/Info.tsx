@@ -2,7 +2,7 @@ import { Flex, Button, Text, Callout, Link } from "@radix-ui/themes";
 import { setInfoSectionOpen } from "../../store/slices/uiSlice";
 import { useDispatch } from "react-redux";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
-import BodyIcon from "./BodyIcon";
+import BodyIcon from "../../icons/BodyIcon";
 
 const Info = () => {
   const dispatch = useDispatch();
@@ -11,8 +11,8 @@ const Info = () => {
       position="fixed"
       top="0"
       left="0"
-      minHeight="100vh"
-      minWidth="100vw"
+      height="100vh"
+      width="100vw"
       align="center"
       direction="column"
       justify="center"
@@ -26,11 +26,19 @@ const Info = () => {
         style={{ backgroundColor: "white", borderRadius: 10, flex: 1 }}
         width="80%"
         height="80%"
+        gap="4"
         direction="column"
         justify="between"
         align="end"
       >
-        <Flex width="100%" style={{ flex: 1 }} direction="column" gap="4" p="4">
+        <Flex
+          width="100%"
+          style={{ flex: 1 }}
+          overflow="auto"
+          direction="column"
+          gap="4"
+          p="4"
+        >
           <Text size="7" weight="bold">
             How to use Viral Verse
           </Text>

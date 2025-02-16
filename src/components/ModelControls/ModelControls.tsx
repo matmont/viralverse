@@ -18,14 +18,24 @@ const ModelControls = () => {
   const { isRunning, isStarted, isFinished, isFastForwarding } = useSelector(
     (state: RootState) => state.simulation
   );
+
+  const canPauseStartSimulation = isFinished || isFastForwarding;
+  const canFastForward =
+    isFinished || isRunning || !isStarted || isFastForwarding;
+  const canResetSimulator = isRunning || isFastForwarding;
+
   return (
     <Flex height="100%" direction="column" p="4">
       <Heading mb="4">Controls</Heading>
       <Grid columns="3" gap="4">
         <Button
-          disabled={isFinished || isFastForwarding}
+          size={{
+            lg: "2",
+            md: "1",
+          }}
+          disabled={canPauseStartSimulation}
           onClick={() => {
-            if (isFinished || isFastForwarding) {
+            if (canPauseStartSimulation) {
               return;
             }
             if (isRunning) {
@@ -39,9 +49,13 @@ const ModelControls = () => {
           {isRunning ? "Pause" : isStarted ? "Resume" : "Start"}
         </Button>
         <Button
-          disabled={isFinished || isRunning || !isStarted || isFastForwarding}
+          size={{
+            lg: "2",
+            md: "1",
+          }}
+          disabled={canFastForward}
           onClick={() => {
-            if (isFinished || isRunning || !isStarted || isFastForwarding) {
+            if (canFastForward) {
               return;
             }
 
@@ -51,15 +65,19 @@ const ModelControls = () => {
           Fast Forward
         </Button>
         <Button
-          disabled={isRunning || isFastForwarding}
+          size={{
+            lg: "2",
+            md: "1",
+          }}
+          disabled={canResetSimulator}
           onClick={() => {
-            if (isRunning || isFastForwarding) {
+            if (canResetSimulator) {
               return;
             }
             dispatch(resetSimulation());
           }}
         >
-          Reset Simulator
+          Reset
         </Button>
         <VirusSelector />
         <MaskUsageSelector />
