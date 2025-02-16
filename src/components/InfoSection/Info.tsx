@@ -133,8 +133,8 @@ const Info = () => {
               <strong>Virus</strong>
             </em>{" "}
             that will be the subject of the simulation. Note that it is possible
-            to create custom <em>viruses</em> with the different variables set
-            as desired.
+            to create custom <em>viruses</em> with the following customizable
+            variables:
           </Text>
           <Text>
             <ul style={{ marginLeft: "4%" }}>
@@ -178,6 +178,48 @@ const Info = () => {
                 first day of disease.
               </li>
             </ul>
+          </Text>
+          <Text>
+            Finally, to conclude the epidemic simulation configuration, it is
+            possible to set two different containment measures:
+          </Text>
+          <Text>
+            <ul style={{ marginLeft: "4%" }}>
+              <li>
+                <strong>
+                  ⚙️
+                  <em>
+                    <strong>Mask Usage</strong>
+                  </em>
+                </strong>
+                : the probability that a user is defined as one that use the
+                mask (and it will use it for the whole duration of the
+                simulation). Please note that using the mask is not a defense
+                against the virus. Instead, it will make sure that the viral
+                load left on the cell by an infected one is lowered down.
+              </li>
+              <li>
+                <strong>
+                  ⚙️
+                  <em>
+                    <strong>Lockdown</strong>
+                  </em>
+                </strong>
+                : the probability that a user <em>infected</em> and{" "}
+                <strong>symptomatic</strong> will stay at its own house, without
+                going around spreading the infection.
+              </li>
+            </ul>
+          </Text>
+          <Text>
+            Now that the simulation is fully configured, it is possible to 🕹️
+            <strong>Start</strong> (and 🕹️<strong>Pause</strong>). A simulation
+            covers <strong>1 year</strong> of life, risulting in a not trivial
+            duration of the interactive view of the process. Hence, it is
+            possible to 🕹️<strong>Fast Forward</strong> the simulation to the
+            end, where a user can check at the resulting 📊
+            <strong>Charts</strong> of the model run (the action button near
+            this <em>Info</em>'s one).
           </Text>
         </Flex>
         <Flex align="center" gap="3">
