@@ -103,13 +103,6 @@ export default class EpidemyModel extends Model {
     this.cityArea = Math.abs(minX - maxX) * Math.abs(minY - maxY);
     this.nOfHouses = Math.floor(this.cityArea * 0.05);
     this.population = this.nOfHouses * 4;
-    // console.log(
-    //   "Population: ",
-    //   this.population,
-    //   " in ",
-    //   this.nOfHouses,
-    //   "houses"
-    // );
   }
 
   setupPatches() {

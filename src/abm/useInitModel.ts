@@ -113,6 +113,13 @@ const useInitModel = ({
       return;
     }
 
+    animator?.stop();
+    model?.reset();
+
+    setAnimator(null);
+    setModel(null);
+    setView(null);
+
     const UNITS = Math.round(Math.sqrt(cityArea) / 2);
     const worldOptions = {
       minX: -UNITS,
@@ -124,26 +131,26 @@ const useInitModel = ({
     if (!virus) {
       return;
     }
-    const model = new EpidemyModel(
+    const newModel = new EpidemyModel(
       worldOptions,
       virus,
       outbreakSizePercent,
       maskUsagePercentage,
       lockDownPercentage
     );
-    model.setup();
+    newModel.setup();
 
     const view = showSimulation
-      ? createView(model, simulatorContainerRef!.current!)
+      ? createView(newModel, simulatorContainerRef!.current!)
       : null;
 
     if (showSimulation) {
       view.draw();
     }
 
-    const animator = new Animator(
+    const newAnimator = new Animator(
       () => {
-        model.step();
+        newModel.step();
         if (showSimulation) {
           view.draw();
         }
@@ -151,16 +158,16 @@ const useInitModel = ({
       DURATION,
       60
     );
-    animator.stop();
+    newAnimator.stop();
 
-    setAnimator(animator);
-    setModel(model);
+    setAnimator(newAnimator);
+    setModel(newModel);
     setView(view);
 
-    dispatch(setNumberOfHouses(model.nOfHouses));
-    dispatch(setNumberOfOffices(model.nOfOffices));
-    dispatch(setNumberOfSchools(model.nOfSchools));
-    dispatch(setPopulation((model as any).turtles.length));
+    dispatch(setNumberOfHouses(newModel.nOfHouses));
+    dispatch(setNumberOfOffices(newModel.nOfOffices));
+    dispatch(setNumberOfSchools(newModel.nOfSchools));
+    dispatch(setPopulation((newModel as any).turtles.length));
   }, [
     cityArea,
     reset,
