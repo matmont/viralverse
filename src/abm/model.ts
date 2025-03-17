@@ -82,7 +82,6 @@ export default class EpidemyModel extends Model {
   }
 
   setup() {
-    // console.log("SETUP MODEL");
     this.startingDateTime = new Date();
     this.startingDateTime.setHours(8, 0, 0, 0);
     this.reduxStore.dispatch(
